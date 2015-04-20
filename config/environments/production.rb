@@ -69,6 +69,7 @@ Rails.application.configure do
     'lib/jquery.dataTable.js',
     'event/*.js',
     'post/*.js',
+    'downloads.js',
 
     'application.css',
     'students.css',
