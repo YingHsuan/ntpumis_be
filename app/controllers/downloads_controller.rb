@@ -77,7 +77,7 @@ class DownloadsController < ApplicationController
     examination_arr=[]
     domestic_arr=[]
     course_arr=[]
-    downloads = Download.order('created_at').all
+    downloads = Download.order('created_at').where("isShow == ?",true)
     downloads.each do |d|
       if d.file_type == "enrollment"
         enrollment_arr << d
@@ -107,7 +107,7 @@ class DownloadsController < ApplicationController
 
   private
   def download_params
-    params.require(:download).permit(:file_type, :title, :link)
+    params.require(:download).permit(:file_type, :title, :link, :isShow)
   end
   def find_download
     @download = Download.find(params[:id])

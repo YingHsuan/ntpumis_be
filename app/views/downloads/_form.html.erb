@@ -4,9 +4,10 @@
       <%= f.text_field :title , class:"form-control", required:true %>
       <%= f.label :file_type, "檔案類型" %>
       <%= f.select "file_type",options_for_select(@download_type.map{|val,key| [key, val]},@download.file_type)  , {:include_blank=>'請選擇'}, {required: 'true' , autofocus: 'true', class: 'form-control'} %>
-       <%= f.label :link, "檔案連結" %>
-       <%= f.text_field :link , class:"form-control", required:true %>
-
+      <%= f.label :link, "檔案連結" %>
+      <%= f.text_field :link , class:"form-control", required:true %>
+      <%= f.label :isShow, "顯示於前台" %>
+      <%= f.select "isShow", options_for_select([['是', true], ['否', false]],@download.isShow), {:include_blank=>'請選擇'}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
   </div>
 
     <a><%= f.submit "完成" ,class:"btn btn-primary pull-right" %></a>
