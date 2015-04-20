@@ -7,7 +7,8 @@ class DownloadsController < ApplicationController
     :enrollment => "招生簡介",
     :newspaper => "資管所通訊",
     :examination => "歷屆考題",
-    :domestic => "常用表單"
+    :domestic => "常用表單",
+    :course => "課程資訊"
   }
 
   def index
@@ -16,6 +17,7 @@ class DownloadsController < ApplicationController
     @downloads_newspaper = []
     @downloads_examination = []
     @downloads_domestic = []
+    @downloads_course = []
     downloads = Download.order("created_at DESC").all
     downloads.each do |d|
       if d.file_type == "enrollment"
@@ -26,6 +28,8 @@ class DownloadsController < ApplicationController
         @downloads_examination << d
       elsif d.file_type == "domestic"
         @downloads_domestic << d
+      elsif d.file_type == "course"
+        @downloads_course << d
       end
     end
   end
@@ -72,6 +76,7 @@ class DownloadsController < ApplicationController
     newspaper_arr=[]
     examination_arr=[]
     domestic_arr=[]
+    course_arr=[]
     downloads = Download.order('created_at').all
     downloads.each do |d|
       if d.file_type == "enrollment"
@@ -82,13 +87,16 @@ class DownloadsController < ApplicationController
         examination_arr << d
       elsif d.file_type == "domestic"
         domestic_arr << d
+      elsif d.file_type == "course"
+        course_arr << d
       end
     end
     result={
           :enrollment => enrollment_arr,
           :newspaper => newspaper_arr,
           :examination => examination_arr,
-          :domestic => domestic_arr
+          :domestic => domestic_arr,
+          :course => course_arr
         }
 
     render :json => result
