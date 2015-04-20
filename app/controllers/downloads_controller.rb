@@ -77,7 +77,7 @@ class DownloadsController < ApplicationController
     examination_arr=[]
     domestic_arr=[]
     course_arr=[]
-    downloads = Download.order('created_at').where("isShow == ?",true)
+    downloads = Download.order('created_at').where("isShow = ?",true)
     downloads.each do |d|
       if d.file_type == "enrollment"
         enrollment_arr << d
