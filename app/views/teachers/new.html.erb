@@ -34,7 +34,8 @@
       <%= f.text_field :image_url , class:"form-control", required:true , :placeholder => "http://xxxx.xxx.jpg"%>
       <%= f.label :employ_type, "聘任狀態" %>
       <%= f.select "employ_type", options_for_select([['專任教師', 0], ['兼任教師', 1],['行政人員',2],['他系教師',3],['客座教授',4]]), {:include_blank=>'請選擇'}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
-
+      <%= f.label :isShow, "顯示於前台" %>
+      <%= f.select "isShow", options_for_select([['是', true], ['否', false]]), {:include_blank=>'請選擇'}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
     </div>
     <a><%= f.submit "建立" ,class:"btn btn-primary pull-right" %></a>
   <% end %>

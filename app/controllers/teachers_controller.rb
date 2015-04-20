@@ -56,7 +56,7 @@ class TeachersController < ApplicationController
     result = Array.new
     title_array_c = Setting::TEACHER_TITLE_ARRAY_C
     title_array_e = Setting::TEACHER_TITLE_ARRAY_E
-    teachers = Teacher.all
+    teachers = Teacher.where("isShow = ?",true)
     teachers.each do |teacher|
       if data['locale'] == 'en'
         result.push(
@@ -188,7 +188,7 @@ class TeachersController < ApplicationController
   end
   private
   def teacher_params
-    params.require(:teacher).permit(:name_c, :name_e, :office_c, :office_e, :domain_c, :domain_e, :degree_c, :degree_e, :title_priority, :is_chair, :email, :tel, :extension ,:employ_type, :image_url)
+    params.require(:teacher).permit(:name_c, :name_e, :office_c, :office_e, :domain_c, :domain_e, :degree_c, :degree_e, :title_priority, :is_chair, :email, :tel, :extension ,:employ_type, :image_url,:isShow)
   end
 
 end

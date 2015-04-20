@@ -8,6 +8,7 @@
         <td>中文名字</td>
         <td>職稱</td>
         <td>領域</td>
+        <td>顯示於前台</td>
       </tr>
     </thead>
     <tbody>
@@ -16,6 +17,7 @@
           <td><%= link_to(teacher.name_c, teacher_path(teacher)) %></td>
           <td><%= @title_array_c[teacher.title_priority] %></td>
           <td><%= teacher.domain_c%></td>
+          <td><%=teacher.isShow == true ? ' O ' : ' X ' %></td>
           <td>
             <%= link_to("Edit",edit_teacher_path(teacher), class: "btn btn-sm btn-default")%>
             <%= link_to("Delete", teacher_path(teacher), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } )%>
