@@ -4,24 +4,17 @@ Rails.application.routes.draw do
   resources :teachers, :students, :theses, :posts, :events, :downloads
 
   post 'thesis/list' => 'theses#list'
-  post 'thesis/create' => 'theses#create_api'
-  post 'thesis/detail/:thesisId' => 'theses#detail'
-  post 'thesis/update/:thesisId' => 'theses#update_api'
-  post 'thesis/delete/:thesisId' => 'theses#delete'
 
   # teacher routes
   post 'teacher/list' => 'teachers#list'
-  post 'teacher/create' => 'teachers#create_api'
-  post 'teacher/update/:teacherId' => 'teachers#update_api'
-  post 'teacher/delete/:teacherId' => 'teachers#delete'
 
   # post routes
   post 'posts/list' => 'posts#list'
   # event routes
   post 'events/list' => 'events#list'
-  
+
   #download routes
-    post 'downloads/list' => 'downloads#list'
+  post 'downloads/list' => 'downloads#list'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
