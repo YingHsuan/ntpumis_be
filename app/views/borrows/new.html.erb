@@ -1,0 +1,162 @@
+<%= javascript_include_tag 'borrow/new', 'data-turbolinks-track' => true %>
+<div class="col-md-8 col-md-offset-2">
+  <h2>新增借閱書籍</h2>
+  <hr>
+  <div>
+  <%= form_for @borrow do |f| %>
+    <div class="form-group col-md-12" >
+        <label>借閱人</label>
+        <div class="input-group">
+          <input type="hidden" name="borrower_type" id="borrower_type" />
+          <input type="hidden" name="borrower_id" id="borrower_id" />
+          <input type="text" class="form-control" id="borrower_name" name="borrower_name" required>
+          <span class="input-group-btn">
+            <a id="borrowerBtn" class="btn btn-default"><span class="glyphicon glyphicon-user"></span></a>
+          </span>
+        </div>
+
+        <label>借閱刊物</label>
+        <div class="input-group">
+          <input type="hidden" name="book_serial_no" id="book_serial_no" />
+          <input type="text" class="form-control" id="book_name" name="book_name" required>
+          <span class="input-group-btn">
+            <a id="bookBtn" class="btn btn-default"><span class="glyphicon glyphicon-book"></span></a>
+          </span>
+        </div>
+      <a><%= f.submit "完成" ,class:"btn btn-primary pull-right" %></a>
+    </div>
+  <% end %>
+  </div>
+</div>
+<div id="borrowerModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">選擇借閱人</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs">
+           <li class="active">
+              <a href="#students" data-toggle="tab">學生</a>
+           </li>
+           <li><a href="#teachers" data-toggle="tab">老師</a></li>
+        </ul>
+        <div class="tab-content">
+           <div class="tab-pane fade in active" id="students">
+              <table class="table thesisTable">
+                 <thead>
+                     <th>學生姓名</th>
+                     <th></th>
+                 </thead>
+                 <tbody>
+                  <% @students.each do |s|%>
+                  <tr>
+                    <td><%= s.stu_name %></td>
+                    <td><button class="borrowerConfirmBtn btn btn-default btn-sm" value="<%= "#{s.id} #{s.stu_name} student"%>" >請選擇</button></td>
+                  </tr>
+                  <% end %>
+                 </tbody>
+              </table>
+          </div>
+
+           <div class="tab-pane fade " id="teachers">
+              <table class="table thesisTable">
+                 <thead>
+                     <th>教師姓名</th>
+                     <th></th>
+                 </thead>
+                 <tbody>
+                  <% @teachers.each do |t|%>
+                  <tr>
+                    <td><%= t.name_c %></td>
+                    <td><button class="borrowerConfirmBtn btn btn-default btn-sm" value="<%= "#{t.id} #{t.name_c} teacher"%>" >請選擇</button></td>
+                  </tr>
+                  <% end %>
+                 </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div id="bookModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">選擇借閱刊物</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs">
+           <li class="active">
+              <a href="#book" data-toggle="tab">書籍</a>
+           </li>
+           <li><a href="#magazine" data-toggle="tab">雜誌</a></li>
+           <li><a href="#thesis" data-toggle="tab">論文</a></li>
+        </ul>
+        <div class="tab-content">
+           <div class="tab-pane fade in active" id="book">
+              <table class="table">
+                 <thead>
+                     <th>書籍名稱</th>
+                     <th>數量</th>
+                     <th></th>
+                 </thead>
+                 <tbody>
+                  <% @book_arr.each do |b|%>
+                  <tr>
+                    <td><%= b.title %></td>
+                    <td><%= b.count %></td>
+                    <td><button class="bookConfirmBtn btn btn-default btn-sm" value="<%= "#{b.serial_no}///#{b.title}"%>" >請選擇</button></td>
+                  </tr>
+                  <% end %>
+                 </tbody>
+              </table>
+          </div>
+
+           <div class="tab-pane fade " id="magazine">
+              <table class="table">
+                 <thead>
+                     <th>雜誌名稱</th>
+                     <th>數量</th>
+                     <th></th>
+                 </thead>
+                 <tbody>
+                  <% @magazine_arr.each do |m|%>
+                  <tr>
+                    <td><%= m.title %></td>
+                    <td><%= m.count %></td>
+                    <td><button class="bookConfirmBtn btn btn-default btn-sm" value="<%= "#{m.serial_no}///#{m.title}"%>" >請選擇</button></td>
+                  </tr>
+                  <% end %>
+                 </tbody>
+              </table>
+          </div>
+
+           <div class="tab-pane fade " id="thesis">
+              <table class="table">
+                 <thead>
+                     <th>論文名稱</th>
+                     <th>數量</th>
+                     <th></th>
+                 </thead>
+                 <tbody>
+                  <% @thesis_arr.each do |t|%>
+                  <tr>
+                    <td><%= t.title %></td>
+                    <td><%= t.count %></td>
+                    <td><button class="bookConfirmBtn btn btn-default btn-sm" value="<%= "#{t.serial_no}///#{t.title}"%>" >請選擇</button></td>
+                  </tr>
+                  <% end %>
+                 </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
