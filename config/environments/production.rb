@@ -70,6 +70,7 @@ Rails.application.configure do
     'event/*.js',
     'post/*.js',
     'downloads.js',
+    'book/*.js',
 
     'application.css',
     'students.css',

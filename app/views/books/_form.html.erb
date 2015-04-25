@@ -17,7 +17,7 @@
       <%= f.text_field :book_publisher , class:"form-control book", required:true %>
       <label class="thesis">論文名稱</label>
       <div class="input-group thesis">
-        <input id="thesis_name" type="text" class="form-control thesis" name="book[title]" value="">
+        <input id="thesis_name" type="text" class="form-control thesis" name="book[title]" value="<%= @book.title%>">
           <span class="input-group-btn">
             <a class="btn btn-info" ><span id="thesisBtn">按此選擇</span></a>
           </span> </div>

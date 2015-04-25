@@ -4,5 +4,97 @@
   <a><%= link_to('新增書籍', new_book_path, class:'btn btn-primary pull-right')%></a>
 </div>
 
+    <ul class="nav nav-tabs">
+       <li class="active">
+          <a href="#book" data-toggle="tab">書籍</a>
+       </li>
+       <li><a href="#magazine" data-toggle="tab">雜誌</a></li>
+       <li><a href="#thesis" data-toggle="tab">論文</a></li>
+
+
+    </ul>
+    <div class="tab-content">
+       <div class="tab-pane fade in active" id="book">
+       <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>書籍編號</td>
+                <td>書籍名稱</td>
+                <td>書籍子類型</td>
+                <td>書籍數量</td>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+              <% @book_arr.each do |b| %>
+                <tr>
+                  <td><%= b.serial_no %></td>
+                  <td><%= b.title %></td>
+                  <td><%= @book_type_category[b.book_type_category]%></td>
+                  <td><%= b.count %></td>
+                  <td>
+                    <%= link_to("編輯",edit_book_path(b), class: "btn btn-sm btn-default")%>
+                    <%= link_to("刪除", book_path(b), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } )%>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+      </div>
+       <div class="tab-pane fade " id="magazine">
+       <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>雜誌編號</td>
+                <td>雜誌名稱</td>
+                <td>雜誌刊號</td>
+                <td>雜誌數量</td>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+              <% @magazine_arr.each do |b| %>
+                <tr>
+                  <td><%= b.serial_no %></td>
+                  <td><%= b.title %></td>
+                  <td><%= b.edition%></td>
+                  <td><%= b.count %></td>
+                  <td>
+                    <%= link_to("編輯",edit_book_path(b), class: "btn btn-sm btn-default")%>
+                    <%= link_to("刪除", book_path(b), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } )%>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+      </div>
+       <div class="tab-pane fade " id="thesis">
+       <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>論文編號</td>
+                <td>論文名稱</td>
+                <td>論文數量</td>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+              <% @thesis_arr.each do |b| %>
+                <tr>
+                  <td><%= b.serial_no %></td>
+                  <td><%= b.title %></td>
+                  <td><%= b.count %></td>
+                  <td>
+                    <%= link_to("編輯",edit_book_path(b), class: "btn btn-sm btn-default")%>
+                    <%= link_to("刪除", book_path(b), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } )%>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+      </div>
+
+    </div> <!-- tab-content -->
+  </div>
 
 <%= javascript_include_tag 'event/index', 'data-turbolinks-track' => true %>

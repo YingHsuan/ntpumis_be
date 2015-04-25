@@ -23,7 +23,7 @@ class EventsController < ApplicationController
   def new
     NTPUMIS_Logger.log(NTPUMIS_Logger::LOG_INFO, "#{self.controller_name}##{self.action_name}", nil)
     @event = Event.new
-    @event_type = JSON.parse(JSON[EVENT_TYPE])
+    @event_type = EVENT_TYPE.as_json
   end
   def create
     NTPUMIS_Logger.log(NTPUMIS_Logger::LOG_INFO, "#{self.controller_name}##{self.action_name}", nil)
