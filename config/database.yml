@@ -18,6 +18,6 @@ production:
   adapter: mysql2
   encoding: utf8
   database: ntpumis_be
-  host: ntpumis2015.ddns.net
-  username: ntpumis
-  password: ntpumis2015
+  host: localhost
+  username: root
+  password: root
