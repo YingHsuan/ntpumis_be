@@ -10,9 +10,9 @@ test:
   adapter: mysql2
   encoding: utf8
   database: ntpumis_development
-  host: 104.236.83.32
-  username: ntpumis
-  password: ntpumis2015
+  host: localhost
+  username: root
+  password: root
 
 production:
   adapter: mysql2

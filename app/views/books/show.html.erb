@@ -1,0 +1,21 @@
+
+<div class="col-md-12">
+  <ol class="breadcrumb">
+    <li> <a> <%= link_to("活動列表", events_path, )%></a></li>
+    <li class="active"><%= @event.title %></li>
+  </ol>
+
+  <div class="col-md-8 col-md-offset-2">
+    <h2><%= @event.title%></h2>
+    <p></p>
+   <table class="table">
+      <tr><td>標題</td><td><%= @event.title %></td></tr>
+      <tr><td>活動類型</td><td><%= @event_type[@event.event_type] %></td></tr>
+      <tr><td>建立日期</td><td><%= @event.created_at.strftime("%Y/%m/%d") %></td></tr>
+      <tr><td>地點</td><td><%=@event.location %></td></tr>
+      <tr><td>活動起始時間</td><td><%=@event.start_time.strftime("%Y/%m/%d %H:%M")%></td></tr>
+      <tr><td>活動結束時間</td><td><%=@event.end_time.strftime("%Y/%m/%d %H:%M") %></td></tr>
+      <tr><td>內容</td><td><%= raw @event.content %></td></tr>
+  </table>
+</div>
+</div>

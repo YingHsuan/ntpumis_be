@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420103403) do
+ActiveRecord::Schema.define(version: 20150423074334) do
+
+  create_table "books", force: true do |t|
+    t.string   "title"
+    t.string   "book_type"
+    t.string   "book_type_category"
+    t.string   "serial_no"
+    t.integer  "count"
+    t.string   "edition"
+    t.string   "book_author"
+    t.string   "book_publisher"
+    t.integer  "thesis_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "downloads", force: true do |t|
     t.string   "file_type"

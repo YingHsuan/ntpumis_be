@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  book_type: MyString
+  book_type_category: MyString
+  serial_no: MyString
+  count: 1
+  edition: MyString
+  book_author: MyString
+  book_publisher: MyString
+  thesis_id: 1
+
+two:
+  title: MyString
+  book_type: MyString
+  book_type_category: MyString
+  serial_no: MyString
+  count: 1
+  edition: MyString
+  book_author: MyString
+  book_publisher: MyString
+  thesis_id: 1

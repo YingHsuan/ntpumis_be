@@ -1,0 +1,61 @@
+<div>
+<%= form_for @book do |f| %>
+  <div class="form-group col-md-12" >
+      <%= f.label :title, "書籍名稱", class:"book magazine" %>
+      <%= f.text_field :title , class:"form-control book magazine", required:true %>
+      <%= f.label :book_type, "書籍類型" %>
+      <%= f.select "book_type",options_for_select(@book_type.map{|val,key| [key, val]},@book.book_type)  , {:include_blank=>'請選擇'}, {required: 'true' , autofocus: 'true', class: 'form-control'} %>
+      <%= f.label :link, "數量" %>
+      <%= f.number_field :count , class:"form-control", min:1 , required:true %>
+      <%= f.label :book_type_category, "書籍子類型", class:"book"%>
+      <%= f.select "book_type_category",options_for_select(@book_type_category.map{|val,key| [key, val]},@book.book_type_category)  , {:include_blank=>'請選擇'}, {required: 'true' , autofocus: 'true', class: 'form-control book'} %>
+      <%= f.label :edition, "版次" ,class:"book magazine"%>
+      <%= f.text_field :edition , class:"form-control book magazine", required:true %>
+      <%= f.label :book_author, "書籍作者" , class:"book"%>
+      <%= f.text_field :book_author , class:"form-control book", required:true %>
+      <%= f.label :book_publisher, "書籍出版商" , class:"book"%>
+      <%= f.text_field :book_publisher , class:"form-control book", required:true %>
+      <label class="thesis">論文名稱</label>
+      <div class="input-group thesis">
+        <input id="thesis_name" type="text" class="form-control thesis" name="book[title]" value="">
+          <span class="input-group-btn">
+            <a class="btn btn-info" ><span id="thesisBtn">按此選擇</span></a>
+          </span> </div>
+      <%= f.hidden_field :thesis_id,value:@book.thesis_id %>
+      </div>
+  </div>
+    <a><%= f.submit "完成" ,class:"btn btn-primary pull-right" %></a>
+  </div>
+<% end %>
+
+<div id="thesisModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">選擇論文</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table thesisTable">
+           <thead>
+               <th>論文名稱</th>
+               <th>學年</th>
+               <th></th>
+           </thead>
+           <tbody>
+            <% @thesis.each do |thesis|%>
+            <tr>
+              <td><%= thesis.name %></td>
+              <td><%= thesis.year%></td>
+              <td><button class="thesisConfirmBtn btn btn-default btn-sm" value="<%= "#{thesis.id}///#{thesis.name}"%>" >請選擇</button></td>
+            </tr>
+            <% end %>
+           </tbody>
+        </table>
+
+      </div>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
