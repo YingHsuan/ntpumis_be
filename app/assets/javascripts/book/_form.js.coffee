@@ -1,4 +1,5 @@
 $(document).on 'ready', ->
+  $('#book_book_type').attr 'disabled',true if isEdit?
   $('#thesis_name').on 'focus', ->
     $(@).blur()
   $('#thesisBtn').on 'click', ->
