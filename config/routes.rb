@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'borrows/' => 'borrows#index'
   get 'borrows/new' => 'borrows#new'
   post 'borrows' => 'borrows#create'
-
+  post 'borrows/return_book/:id' => 'borrows#return_book'
 
 
 
