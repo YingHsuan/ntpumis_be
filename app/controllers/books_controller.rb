@@ -56,15 +56,17 @@ class BooksController < ApplicationController
   end
   def update
     NTPUMIS_Logger.log(NTPUMIS_Logger::LOG_INFO, "#{self.controller_name}##{self.action_name}", params.to_s)
+    original_sn = @book.serial_no
     @book.update(book_params)
-
+    #update borrow serial_no
+    Borrow.where("book_serial_no = ?",original_sn).update_all(:book_serial_no => @book.serial_no)
     redirect_to :action => :index
     flash[:notice] = "成功更新書籍 [#{BOOK_TYPE.as_json[@book.book_type]}] #{@book.title}"
   end
   def destroy
     NTPUMIS_Logger.log(NTPUMIS_Logger::LOG_INFO, "#{self.controller_name}##{self.action_name}", nil)
     @book.destroy
-
+    Borrow.destroy_all(:book_serial_no => @book.serial_no)
     redirect_to :action => :index
     flash[:alert] = "成功刪除書籍 #{@book.title}"
   end
