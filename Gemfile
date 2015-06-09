@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'rack-cors', :require => 'rack/cors'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 gem 'bootstrap-datepicker-rails'
