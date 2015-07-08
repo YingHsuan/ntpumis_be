@@ -122,6 +122,7 @@
                  <thead>
                      <th>雜誌名稱</th>
                      <th>數量</th>
+                     <th>刊號</th>
                      <th></th>
                  </thead>
                  <tbody>
@@ -129,6 +130,7 @@
                   <tr>
                     <td><%= m.title %></td>
                     <td><%= m.count %></td>
+                    <td><%= m.edition %></td>
                     <td><button class="bookConfirmBtn btn btn-default btn-sm" value="<%= "#{m.serial_no}///#{m.title}"%>" >請選擇</button></td>
                   </tr>
                   <% end %>
