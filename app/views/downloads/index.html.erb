@@ -152,13 +152,14 @@
             </tbody>
         </table>
       </div>
-      <div class="tab-pane fade in active" id="fiveyear">
+      <div class="tab-pane fade" id="fiveyear">
        <table id="fiveyearTable" class="table table-hover">
             <thead>
               <tr>
                 <td>標題</td>
                 <td>檔案管理連結</td>
                 <td>建立時間</td>
+                <td>顯示於前台</td>
                 <td></td>
               </tr>
             </thead>
@@ -168,6 +169,7 @@
                   <td><%= d.title %></td>
                   <td><a href="<%= d.link %>" target="_blank"><%= d.link %></a></td>
                   <td><%= d.created_at.strftime("%Y/%m/%d") %></td>
+                  <td><%=d.isShow == true ? ' O ' : ' X ' %></td>
                   <td>
                     <%= link_to("編輯",edit_download_path(d), class: "btn btn-sm btn-default")%>
                     <%= link_to("刪除", download_path(d), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } )%>
