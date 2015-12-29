@@ -12,6 +12,7 @@
        <li><a href="#examination" data-toggle="tab">歷屆考題</a></li>
        <li><a href="#domestic" data-toggle="tab">常用表單</a></li>
        <li><a href="#course" data-toggle="tab">課程資訊</a></li>
+       <li><a href="#fiveyear" data-toggle="tab">一貫修讀學、碩士學位</a></li>
 
 
     </ul>
@@ -142,6 +143,31 @@
                   <td><a href="<%= d.link %>" target="_blank"><%= d.link %></a></td>
                   <td><%= d.created_at.strftime("%Y/%m/%d") %></td>
                   <td><%=d.isShow == true ? ' O ' : ' X ' %></td>
+                  <td>
+                    <%= link_to("編輯",edit_download_path(d), class: "btn btn-sm btn-default")%>
+                    <%= link_to("刪除", download_path(d), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } )%>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+      </div>
+      <div class="tab-pane fade in active" id="fiveyear">
+       <table id="fiveyearTable" class="table table-hover">
+            <thead>
+              <tr>
+                <td>標題</td>
+                <td>檔案管理連結</td>
+                <td>建立時間</td>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+            <% @downloads_fiveyear.each do |d| %>
+                <tr>
+                  <td><%= d.title %></td>
+                  <td><a href="<%= d.link %>" target="_blank"><%= d.link %></a></td>
+                  <td><%= d.created_at.strftime("%Y/%m/%d") %></td>
                   <td>
                     <%= link_to("編輯",edit_download_path(d), class: "btn btn-sm btn-default")%>
                     <%= link_to("刪除", download_path(d), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } )%>
