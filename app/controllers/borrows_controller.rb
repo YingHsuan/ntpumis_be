@@ -25,7 +25,6 @@ class BorrowsController < ApplicationController
             :book_name => bookName,
             :borrow_date => b.borrow_date.strftime("%Y/%m/%d"),
             :return_date => b.return_date.nil? ? '':b.return_date.strftime("%Y/%m/%d")
-
           }
         )
       when false
