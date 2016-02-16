@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 module NtpumisBe
   class Application < Rails::Application
     config.assets.paths << "#{Rails}/vendor/assets/fonts"
-    config.time_zone = "Taipei"
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do
         origins '*'
@@ -20,6 +19,7 @@ module NtpumisBe
     # -- all .rb files in that directory are automatically loaded.
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+    config.time_zone = "Taipei"
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]

@@ -1,13 +1,13 @@
 class Utility
   def self.generate_book_sn(book_type_category,created_at)
-    param1 = created_at.localtime.strftime("%Y%m%d%H%M")
+    param1 = created_at.strftime("%Y%m%d%H%M")
     param2 = book_short_code(book_type_category)
     serial_no = "BOK-#{param1}-#{param2}"
     puts "book sn #{serial_no}"
     serial_no
   end
   def self.generate_magazine_sn(edition,created_at)
-    param1 = created_at.localtime.strftime("%Y%m%d%H%M")
+    param1 = created_at.strftime("%Y%m%d%H%M")
     param2 = edition
     serial_no = "MAG-#{param1}-#{param2}"
     puts "magazine sn #{serial_no}"

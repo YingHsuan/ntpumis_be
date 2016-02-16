@@ -70,6 +70,7 @@ class BorrowsController < ApplicationController
     borrow.borrow_date = DateTime.now()
     borrow.is_return = false
     borrow.save!
+    puts params[:book_serial_no]
 
     book = Book.find_by_serial_no(params[:book_serial_no])
     book.count = (book.count - 1)
