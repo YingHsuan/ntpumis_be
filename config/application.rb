@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 module NtpumisBe
   class Application < Rails::Application
     config.assets.paths << "#{Rails}/vendor/assets/fonts"
+    config.time_zone = "Taipei"
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do
         origins '*'
