@@ -4,7 +4,7 @@ development:
   database: ntpumis_be
   host: localhost
   username: root
-  password: wendy113
+  password: ntpumis2015
 
 test:
   adapter: mysql2
