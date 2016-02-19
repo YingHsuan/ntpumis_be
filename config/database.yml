@@ -19,5 +19,13 @@ production:
   encoding: utf8
   database: ntpumis_be
   host: localhost
+<<<<<<< Updated upstream
   username: root
   password: ntpumis2015
+||||||| merged common ancestors
+  username: root
+  password: root
+=======
+  username: ntpumis
+  password: ntpumis2015
+>>>>>>> Stashed changes

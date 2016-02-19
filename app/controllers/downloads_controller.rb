@@ -81,6 +81,7 @@ class DownloadsController < ApplicationController
     examination_arr=[]
     domestic_arr=[]
     course_arr=[]
+    fiveyear_arr=[]
     downloads = Download.order('created_at DESC').where("isShow = ?",true)
     fiveyear_arr=[]
     downloads = Download.order('created_at').all

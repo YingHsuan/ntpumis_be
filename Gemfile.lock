@@ -87,8 +87,14 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     minitest (5.5.0)
+<<<<<<< Updated upstream
     momentjs-rails (2.9.0)
       railties (>= 3.1)
+||||||| merged common ancestors
+=======
+    momentjs-rails (2.10.2)
+      railties (>= 3.1)
+>>>>>>> Stashed changes
     multi_json (1.10.1)
     mysql2 (0.3.17)
     orm_adapter (0.5.0)
